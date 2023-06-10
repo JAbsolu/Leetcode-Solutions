@@ -18,18 +18,15 @@ Concatenating two numbers means joining them together. For example, the concaten
  * @param {number} n
  * @return {boolean}
  */
+// var isFascinating = function(n) {
 
 var isFascinating = function(n) {
     const set = {};
 
     let concatNum = n + '' + n * 2 + '' + n * 3;
 
-    for (let num of concatNum) {
-        if (num === 0) return false;
-    };
-
     for (let i = 0; i < concatNum.length; i+=1) {
-        if (concatNum[i] > 9 || concatNum[i] < 1) return false;
+        if (concatNum[i] < 1) return false;
 
         if (set[concatNum[i]]) {
             return false;
