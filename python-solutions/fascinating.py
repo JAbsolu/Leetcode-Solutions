@@ -1,4 +1,3 @@
-
 def isFascinating(n):
     isSeen = []
     concatNum = n + str(int(n) * 2) + str(int(n) * 3)
@@ -12,6 +11,7 @@ def isFascinating(n):
         isSeen.append(num)
     return True
 
+# ------TEST CASE -------------
 
 print(isFascinating("192"))
 print(isFascinating("100"))
