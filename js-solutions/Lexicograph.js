@@ -3,12 +3,14 @@
 
 You are given a string s consisting of only lowercase English letters. In one operation, you can do the following:
 
-Select any non-empty substring of s, possibly the entire string, then replace each one of its characters with the previous character of the English alphabet. For example, 'b' is converted to 'a', and 'a' is converted to 'z'.
+Select any non-empty substring of s, possibly the entire string, then replace each one of its characters with the
+previous character of the English alphabet. For example, 'b' is converted to 'a', and 'a' is converted to 'z'.
 Return the lexicographically smallest string you can obtain after performing the above operation exactly once.
 
 A substring is a contiguous sequence of characters in a string.
 
-A string x is lexicographically smaller than a string y of the same length if x[i] comes before y[i] in alphabetic order for the first position i such that x[i] != y[i].
+A string x is lexicographically smaller than a string y of the same length if x[i] comes before y[i] in alphabetic 
+order for the first position i such that x[i] != y[i].
  
 
 Example 1:
@@ -42,26 +44,12 @@ s consists of lowercase English letters
  * @return {string}
  */
 var smallestString = function(s) {
-    let result = "";
 
-    for (let char of s) {
-        previous = char.charCodeAt();
-
-        if (char.charCodeAt() < previous) {
-            result += String.fromCharCode(previous - 1);
-        } else {
-            result += char;
-        }
-    }
-
-    return result;
+    
 };
 
-// 'cbabc'
-//  0
-//  p=c
 
-// console.log(smallestString("abcdef"));
+console.log(smallestString("abcdef"));
 console.log(smallestString("cbabc"));
 console.log(smallestString("acbbc"));
 // console.log(smallestString("leetcode"));

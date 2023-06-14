@@ -33,18 +33,28 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
 Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
  
 
-/**
+/*
  * @param {number[]} nums
  * @return {number[]}
  */
+
 var productExceptSelf = function(nums) {
-    const answer = [];
-    answer[0] = 1;
-    
-    for (let i = 0; i < nums.length; i+=1){
-        
+    const output = new Array(nums.length);
+    let prefix = 1;
+
+    for (let i = 0; i < nums.length; i++) {
+        output[i] = prefix;
+        prefix *= nums[i];
     }
+
+    let post = 1;
+    for (let i = nums.length - 1; i >= 0; i--) {
+        output[i] *= post;
+        post *= nums[i];
+    }
+
+    return output;
 };
 
 console.log(productExceptSelf([1,2,3,4]));
-console.log(productExceptSelf([-1,1,0,-3,3])); 
+// console.log(productExceptSelf([1,3,4,2]));
