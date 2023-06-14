@@ -40,6 +40,26 @@ Follow up: Can you solve the problem in O(1) extra space complexity? (The output
 
 var productExceptSelf = function(nums) {
     const output = new Array(nums.length);
+    let j = nums.length - 1;
+    let i = 0;
+    let left = 1;
+    let right = 1;
+    
+    while (i < nums.length && j >= 0) {
+        output[i]
+    }
+
+    
+
+    return output;
+};
+
+console.log(productExceptSelf([1,2,3,4]));
+// console.log(productExceptSelf([1,3,4,2]));
+
+
+var productExceptSelf = function(nums) {
+    const output = new Array(nums.length);
     let prefix = 1;
 
     for (let i = 0; i < nums.length; i++) {
@@ -55,6 +75,3 @@ var productExceptSelf = function(nums) {
 
     return output;
 };
-
-console.log(productExceptSelf([1,2,3,4]));
-// console.log(productExceptSelf([1,3,4,2]));
