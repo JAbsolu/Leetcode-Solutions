@@ -1,21 +1,28 @@
-const groupAnagrams = (strs) => {    
-    const groupsMap = {};
+const group_anagrams = (strs) => {
+    const groups = {};
     const result = [];
 
     for (let str of strs) {
-        let reversed_str = str.split('').sort().join('');
+        const charCount = Array(26).fill(0);
 
-        !groupsMap[reversed_str] ? groupsMap[reversed_str] = [] : null;
-        groupsMap[reversed_str].push(str)
+        for (let char of str) {
+            charCount[char.charCodeAt(0) - 'a'.charCodeAt(0)] += 1;
+        }
+
+        if (!groups[charCount]) {
+            groups[charCount] = [];
+        }
+        groups[charCount].push(str)
     }
 
-    for (let key in groupsMap) {
-        result.push(groupsMap[key]);
+    for (let key in groups) {
+        result.push(groups[key])
     }
 
     return result;
-};
+}
 
-console.log('Output: ' + groupAnagrams(["eat","tea","tan","ate","nat","bat"]));
-console.log('Output: ' + groupAnagrams([""]));
-console.log('Output: ' + groupAnagrams(["a"]));
+
+console.log('Output: ' + group_anagrams(["eat","tea","tan","ate","nat","bat"]));
+console.log('Output: ' + group_anagrams([""]));
+console.log('Output: ' + group_anagrams(["a"]));
